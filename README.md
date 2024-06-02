@@ -12,17 +12,21 @@ This query is not case sensitive, but requires full name <br />
 
 ### POST
 http://localhost:3000/books <br />
-Body { <br />
-    "title": "New Book", <br />
-    "author": "Juan Silvestre", <br />
-    "publisher": "A Book Publisher", <br />
-    "published": "July 18, 1975" <br />
-} <br />
+```
+Body {
+    "title": "New Book",
+    "author": "Juan Silvestre",
+    "publisher": "A Book Publisher",
+    "published": "July 18, 1975"
+}
+```
 Returns JSON with book set in books Map() <br />
 
 ### DELETE
 http://localhost:3000/books/delete/:id <br />
 if if successful <br />
-returns body { <br />
-    "deletionCompleted": "true" <br />
-} <br />
+```
+returns body {
+    "deletionCompleted": "true"
+}
+```
