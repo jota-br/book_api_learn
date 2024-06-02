@@ -1,5 +1,5 @@
 ## Simple Book api created to learn about Node.js
-### GET all book(s)
+### GET book(s)
 /books <br />
 Returns JSON with all books in books Map() <br />
 
