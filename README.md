@@ -28,8 +28,9 @@ This query is not case sensitive, but requires full name <br />
 
 ### POST insert new book
 /books <br />
+required body
 ```js
-required body {
+{
     "title": "bookName",
     "author": "authorName",
     "publisher": "publisherName",
@@ -38,7 +39,7 @@ required body {
 ```
 Returns JSON with book set in books Map() <br />
 ```js
-returns body {
+{
     "title": "New Book",
     "author": "Juan Silvestre",
     "publisher": "A Book Publisher",
@@ -52,7 +53,7 @@ returns body {
 /books/delete/:id <br />
 if successful <br />
 ```js
-returns body {
+{
     "deletionCompleted": "true"
 }
 ```
