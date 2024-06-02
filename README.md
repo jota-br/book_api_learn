@@ -21,6 +21,7 @@ required body {
     "published": "Month Day, Year"
 }
 ```
+Returns JSON with book set in books Map() <br />
 ```
 returns body {
     "title": "New Book",
@@ -29,7 +30,6 @@ returns body {
     "published": "July 18, 1975"
 }
 ```
-Returns JSON with book set in books Map() <br />
 <br />
 <br />
 ### POST DELETE book
