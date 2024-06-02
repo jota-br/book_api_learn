@@ -1,7 +1,7 @@
 ## Book api created to learn Node.js
 
 ### Books Map() format
-```json
+```js
 const defaultBook = {
     title: 'This the Book!',
     author: 'Bok Riter',
@@ -28,7 +28,7 @@ This query is not case sensitive, but requires full name <br />
 
 ### POST insert new book
 /books <br />
-```json
+```js
 required body {
     "title": "bookName",
     "author": "authorName",
@@ -37,7 +37,7 @@ required body {
 }
 ```
 Returns JSON with book set in books Map() <br />
-```json
+```js
 returns body {
     "title": "New Book",
     "author": "Juan Silvestre",
@@ -51,7 +51,7 @@ returns body {
 ### POST DELETE book
 /books/delete/:id <br />
 if successful <br />
-```json
+```js
 returns body {
     "deletionCompleted": "true"
 }
