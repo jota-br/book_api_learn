@@ -1,4 +1,5 @@
 ## Book api created to learn Node.js
+
 ### Books Map() format
 ```
 const defaultBook = {
@@ -11,6 +12,7 @@ const defaultBook = {
 ```
 <br />
 <br />
+
 ### GET book(s)
 /books <br />
 Returns JSON with all books in books Map() <br />
@@ -23,6 +25,7 @@ Returns JSON with all books from books Map() with the especified author <br />
 This query is not case sensitive, but requires full name <br />
 <br />
 <br />
+
 ### POST insert new book
 /books <br />
 ```
@@ -44,6 +47,7 @@ returns body {
 ```
 <br />
 <br />
+
 ### POST DELETE book
 /books/delete/:id <br />
 if successful <br />
