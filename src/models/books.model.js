@@ -48,6 +48,7 @@ function postBook(book) {
     books.set(newId, Object.assign(book, {
         id: newId,
     }));
+    return book;
 }
 
 function getBookById(bookId) {

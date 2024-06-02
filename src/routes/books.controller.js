@@ -48,9 +48,7 @@ async function httpPostBook(req, res) {
             error: 'Invalid published date',
         });
     }
-
-    postBook(book);
-    return res.status(201).json(book);
+    return await res.status(201).json(postBook(book));
 }
 
 async function httpPostUpdateBook(req, res) {
@@ -63,7 +61,7 @@ async function httpPostUpdateBook(req, res) {
     }
 
     // const result = postUpdateBook(book, bookId);
-    return res.status(200).json(postUpdateBook(book, bookId));
+    return await res.status(200).json(postUpdateBook(book, bookId));
 }
 
 async function httpDeleteBook(req, res) {
@@ -73,10 +71,8 @@ async function httpDeleteBook(req, res) {
             error: 'Book ID not found, deletion aborted',
         });
     }
-
-    const result = deleteBook(bookId);
-    return res.status(200).json({
-        deletionCompleted: `${result}`,
+    return await res.status(200).json({
+        deletionCompleted: `${deleteBook(bookId) }`,
     });
 }
 

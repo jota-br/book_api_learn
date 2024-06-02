@@ -11,7 +11,7 @@ const {
 const booksRouter = express.Router();
 
 booksRouter.get('/', httpGetAllBooks);
-booksRouter.get('/:author', httpGetBookByAuthor);
+booksRouter.get('/author/:author', httpGetBookByAuthor);
 booksRouter.get('/:id', httpGetBookById);
 booksRouter.post('/', httpPostBook);
 booksRouter.post('/update/:id', httpPostUpdateBook);
