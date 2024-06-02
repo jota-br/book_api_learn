@@ -1,5 +1,5 @@
 ## Simple Book api created to learn about Node.js
-### GET
+### GET all book(s)
 /books <br />
 Returns JSON with all books in books Map() <br />
 
@@ -11,7 +11,7 @@ Returns JSON with all books from books Map() with the especified author <br />
 This query is not case sensitive, but requires full name <br />
 <br />
 <br />
-### POST
+### POST insert new book
 /books <br />
 ```
 Body {
@@ -24,7 +24,7 @@ Body {
 Returns JSON with book set in books Map() <br />
 <br />
 <br />
-### DELETE
+### POST DELETE book
 /books/delete/:id <br />
 if if successful <br />
 ```
