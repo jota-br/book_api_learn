@@ -1,2 +1,2 @@
-### Simple Book api for learning
+### Simple Book api created to learn about Node.js
 GET, POST, DELETE
