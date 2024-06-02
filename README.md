@@ -9,7 +9,8 @@ Returns JSON with book from books Map() with the especified id <br />
 http://localhost:3000/books/:author <br />
 Returns JSON with all books from books Map() with the especified author <br />
 This query is not case sensitive, but requires full name <br />
-
+<br />
+<br />
 ### POST
 http://localhost:3000/books <br />
 ```
@@ -21,7 +22,8 @@ Body {
 }
 ```
 Returns JSON with book set in books Map() <br />
-
+<br />
+<br />
 ### DELETE
 http://localhost:3000/books/delete/:id <br />
 if if successful <br />
