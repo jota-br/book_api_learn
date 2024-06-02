@@ -51,7 +51,7 @@ Returns JSON with book set in books Map(): <br />
 
 ### POST DELETE book
 /books/delete/:id <br />
-if successful: <br />
+if successful returns: <br />
 ```js
 {
     "deletionCompleted": "true"
