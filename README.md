@@ -14,7 +14,15 @@ This query is not case sensitive, but requires full name <br />
 ### POST insert new book
 /books <br />
 ```
-return body {
+required body {
+    "title": "bookName",
+    "author": "authorName",
+    "publisher": "publisherName",
+    "published": "Month Day, Year"
+}
+```
+```
+returns body {
     "title": "New Book",
     "author": "Juan Silvestre",
     "publisher": "A Book Publisher",
