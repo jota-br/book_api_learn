@@ -28,7 +28,7 @@ This query is not case sensitive, but requires full name <br />
 
 ### POST insert new book
 /books <br />
-required body
+required body:
 ```js
 {
     "title": "bookName",
@@ -37,7 +37,7 @@ required body
     "published": "Month Day, Year"
 }
 ```
-Returns JSON with book set in books Map() <br />
+Returns JSON with book set in books Map(): <br />
 ```js
 {
     "title": "New Book",
@@ -51,7 +51,7 @@ Returns JSON with book set in books Map() <br />
 
 ### POST DELETE book
 /books/delete/:id <br />
-if successful <br />
+if successful: <br />
 ```js
 {
     "deletionCompleted": "true"
