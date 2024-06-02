@@ -1,4 +1,4 @@
-## Simple Book api created to learn about Node.js
+## Book api created to learn Node.js
 ### GET book(s)
 /books <br />
 Returns JSON with all books in books Map() <br />
