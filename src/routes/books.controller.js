@@ -5,6 +5,7 @@ const {
     getBookByAuthor,
     getBookById,
     postBook,
+    postUpdateBook,
     deleteBook,
 } = require('../models/books.model');
 
@@ -52,6 +53,19 @@ async function httpPostBook(req, res) {
     return res.status(201).json(book);
 }
 
+async function httpPostUpdateBook(req, res) {
+    const book = req.body;
+    const bookId = Number(req.params.id);
+    if (!existsBookWithId(bookId)) {
+        return res.status(404).json({
+            error: 'Book ID not found, update aborted',
+        });
+    }
+
+    // const result = postUpdateBook(book, bookId);
+    return res.status(200).json(postUpdateBook(book, bookId));
+}
+
 async function httpDeleteBook(req, res) {
     const bookId = Number(req.params.id);
     if (!existsBookWithId(bookId)) {
@@ -71,5 +85,6 @@ module.exports = {
     httpGetBookByAuthor,
     httpGetBookById,
     httpPostBook,
+    httpPostUpdateBook,
     httpDeleteBook,
 }

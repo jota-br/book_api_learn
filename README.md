@@ -49,6 +49,29 @@ Returns JSON with book set in books Map(): <br />
 <br />
 <br />
 
+### POST update book
+/books <br />
+required body:
+```js
+{
+    "title": "bookName",
+    "author": "authorName",
+    "publisher": "publisherName",
+    "published": "Month Day, Year"
+}
+```
+Returns JSON with updated fields: <br />
+```js
+{
+    "title": true,
+    "author": true,
+    "publisher": true,
+    "published": true
+}
+```
+<br />
+<br />
+
 ### POST DELETE book
 /books/delete/:id <br />
 if successful returns: <br />

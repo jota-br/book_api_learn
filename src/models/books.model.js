@@ -50,6 +50,48 @@ function postBook(book) {
     }));
 }
 
+function getBookById(bookId) {
+    let arr = Array.from(books.values());
+    let book = arr.find(book => book.id === bookId);
+    return book;
+}
+
+function postUpdateBook(book, bookId) {
+    let tempObj = {
+        title: false,
+        author: false,
+        publisher: false,
+        published: false,
+    };
+
+    let arr = Array.from(books.values());
+    arr.map(item => {
+        var temp = Object.assign({}, item);
+        if (temp.id === bookId) {
+            if (book.title?.length > 0) {
+                item.title = book.title;
+                tempObj.title = true;
+            }
+
+            if (book.author?.length > 0) {
+                item.author = book.author;
+                tempObj.author = true;
+            }
+
+            if (book.publisher?.length > 0) {
+                item.publisher = book.publisher;
+                tempObj.publisher = true;
+            }
+
+            if (book.published?.length > 0) {
+                item.published = book.published;
+                tempObj.published = true;
+            }
+        }
+    });
+    return tempObj;
+}
+
 function deleteBook(bookId) {
     return books.delete(bookId);
 }
@@ -61,5 +103,6 @@ module.exports = {
     getBookByAuthor,
     getBookById,
     postBook,
+    postUpdateBook,
     deleteBook,
 }

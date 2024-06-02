@@ -4,6 +4,7 @@ const {
     httpGetBookByAuthor,
     httpGetBookById,
     httpPostBook,
+    httpPostUpdateBook,
     httpDeleteBook,
 } = require('./books.controller');
 
@@ -13,6 +14,7 @@ booksRouter.get('/', httpGetAllBooks);
 booksRouter.get('/:author', httpGetBookByAuthor);
 booksRouter.get('/:id', httpGetBookById);
 booksRouter.post('/', httpPostBook);
+booksRouter.post('/update/:id', httpPostUpdateBook);
 booksRouter.post('/delete/:id', httpDeleteBook);
 
 module.exports = booksRouter;
