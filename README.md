@@ -20,7 +20,7 @@ Returns JSON with all books in books Map() <br />
 /books/:id <br />
 Returns JSON with book from books Map() with the especified id <br />
 
-/books/:author <br />
+/books/author/:author <br />
 Returns JSON with all books from books Map() with the especified author <br />
 This query is not case sensitive, but requires full name <br />
 <br />
