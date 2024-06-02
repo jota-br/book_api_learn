@@ -1,4 +1,16 @@
 ## Book api created to learn Node.js
+### Books Map() format
+```
+const defaultBook = {
+    title: 'This the Book!',
+    author: 'Bok Riter',
+    publisher: 'The Book Consortium',
+    published: new Date('January 1, 1970'),
+    id: 0,
+}
+```
+<br />
+<br />
 ### GET book(s)
 /books <br />
 Returns JSON with all books in books Map() <br />
