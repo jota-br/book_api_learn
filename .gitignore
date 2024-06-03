@@ -1,3 +1,4 @@
 # Ignore list
-src/node_modules
 bk_1.1.0
+src/node_modules
+src/services/mongo_url.js
