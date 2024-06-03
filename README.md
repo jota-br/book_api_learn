@@ -7,10 +7,12 @@ Set PORT
 PORT=3000
 ```
 
-#### src/services/mongo.js
-Set MongoDB connection URL
+#### src/services/
+Set MongoDB connection URL by creating mongo_url.js file
 ```js
-const MONGO_URL = '';
+const mongoUrl = 'mongoDB_URL';
+
+export default mongoUrl;
 ```
 
 ### src/models/mongo.js
