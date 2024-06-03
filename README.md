@@ -7,13 +7,19 @@ Set PORT
 PORT=3000
 ```
 
+<br />
+<br />
+
 #### src/services/
-Set MongoDB connection URL by creating mongo_url.js file
+Set MongoDB connection URL by creating mongo_url.js file <br />
 ```js
 const mongoUrl = 'mongoDB_URL';
 
 export default mongoUrl;
 ```
+
+<br />
+<br />
 
 ### src/models/mongo.js
 Books Schema:
@@ -49,12 +55,13 @@ Return JSON with book data <br />
 /books/author/:author <br />
 Returns JSON with author books <br />
 This query is not case sensitive <br />
+
 <br />
 <br />
 
 ### POST new book
 /books <br />
-required body:
+required body: <br />
 ```js
 {
     "title": "bookName",
@@ -64,12 +71,13 @@ required body:
 }
 ```
 Returns JSON with new book data <br />
+
 <br />
 <br />
 
 ### POST update book
 /books <br />
-required body:
+required body: <br />
 ```js
 {
     "title": "bookName",
@@ -79,6 +87,7 @@ required body:
 }
 ```
 Returns JSON with updated fields <br />
+
 <br />
 <br />
 
