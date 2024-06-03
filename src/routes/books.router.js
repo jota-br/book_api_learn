@@ -1,20 +1,20 @@
 const express = require('express');
 const {
     httpGetAllBooks,
-    httpGetBookByAuthor,
     httpGetBookById,
-    httpPostBook,
-    httpPostUpdateBook,
-    httpDeleteBook,
+    httpGetBookByAuthor,
+    httpSaveBook,
+    httpUpdateBookById,
+    httpDeleteBookById,
 } = require('./books.controller');
 
 const booksRouter = express.Router();
 
 booksRouter.get('/', httpGetAllBooks);
-booksRouter.get('/author/:author', httpGetBookByAuthor);
 booksRouter.get('/:id', httpGetBookById);
-booksRouter.post('/', httpPostBook);
-booksRouter.post('/update/:id', httpPostUpdateBook);
-booksRouter.post('/delete/:id', httpDeleteBook);
+booksRouter.get('/author/:author', httpGetBookByAuthor);
+booksRouter.post('/', httpSaveBook);
+booksRouter.post('/update/:id', httpUpdateBookById);
+booksRouter.post('/delete/:id', httpDeleteBookById);
 
 module.exports = booksRouter;

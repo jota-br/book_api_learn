@@ -1,86 +1,82 @@
 const {
-    existsBookWithId,
-    existsAuthor,
     getAllBooks,
-    getBookByAuthor,
     getBookById,
-    postBook,
-    postUpdateBook,
-    deleteBook,
+    getBookByAuthor,
+    saveBook,
+    updateBookById,
+    deleteBookById,
 } = require('../models/books.model');
 
 async function httpGetAllBooks(req, res) {
-    return await res.status(200).json(getAllBooks());
-}
-
-// Title, Author, Id
-async function httpGetBookByAuthor(req, res) {
-    const author = req.params.author;
-    if (!existsAuthor(author)) {
-        return res.status(404).json({
-            error: 'Author not found',
-        });
+    try {
+        const books = await getAllBooks();
+        return res.status(200).json(books);
+    } catch (err) {
+        console.error(err);
+        return err;
     }
-    return await res.status(200).json(getBookByAuthor(author));
 }
 
 async function httpGetBookById(req, res) {
-    const bookId = Number(req.params.id);
-    if (!existsBookWithId(bookId)) {
-        return res.status(404).json({
-            error: 'Book ID not found',
-        });
+    try {
+        const bookId = req.params.id;
+        const book = await getBookById(bookId);
+        return res.status(200).json(book);
+    } catch (err) {
+        console.error(err);
+        return err;
     }
-    return await res.status(200).json(getBookById(bookId));
 }
 
-async function httpPostBook(req, res) {
-    const book = req.body;
-
-    if (!book.title || !book.author || !book.publisher || !book.published ) {
-        return res.status(400).json({
-            error: 'Missing required book information',
-        });
+async function httpGetBookByAuthor(req, res) {
+    try {
+        const author = req.params.author;
+        const book = await getBookByAuthor(author);
+        return res.status(200).json(book);
+    } catch (err) {
+        console.error(err);
+        return err;
     }
-    book.published = new Date(book.published);
-    if (isNaN(book.published)) {
-        return res.status(400).json({
-            error: 'Invalid published date',
-        });
-    }
-    return await res.status(201).json(postBook(book));
 }
 
-async function httpPostUpdateBook(req, res) {
-    const book = req.body;
-    const bookId = Number(req.params.id);
-    if (!existsBookWithId(bookId)) {
-        return res.status(404).json({
-            error: 'Book ID not found, update aborted',
-        });
+async function httpSaveBook(req, res) {
+    try {
+        const data = req.body;
+        const book = await saveBook(data);
+        return res.status(200).json(book);
+    } catch (err) {
+        console.error(err);
+        return err;
     }
-
-    // const result = postUpdateBook(book, bookId);
-    return await res.status(200).json(postUpdateBook(book, bookId));
 }
 
-async function httpDeleteBook(req, res) {
-    const bookId = Number(req.params.id);
-    if (!existsBookWithId(bookId)) {
-        return res.status(404).json({
-            error: 'Book ID not found, deletion aborted',
-        });
+async function httpUpdateBookById(req, res) {
+    try {
+        const data = req;
+        const book = await updateBookById(data);
+        return res.status(200).json(book);
+    } catch (err) {
+        console.error(err);
+        return err;
     }
-    return await res.status(200).json({
-        deletionCompleted: `${deleteBook(bookId) }`,
-    });
+}
+
+async function httpDeleteBookById(req, res) {
+    try {
+        const bookId = req.params.id;
+        const book = await deleteBookById(bookId);
+        return res.status(200).json(book);
+    } catch (err) {
+        console.error(err);
+        return err;
+    }
 }
 
 module.exports = {
     httpGetAllBooks,
-    httpGetBookByAuthor,
     httpGetBookById,
-    httpPostBook,
-    httpPostUpdateBook,
-    httpDeleteBook,
+    httpGetBookByAuthor,
+    httpSaveBook,
+    httpUpdateBookById,
+    httpDeleteBookById,
 }
