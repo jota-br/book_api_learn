@@ -96,6 +96,7 @@ Returns JSON with updated fields <br />
 if successful returns: <br />
 ```js
 {
-    "deletionCompleted": "true"
+    "acknowledged": true,
+    "deletedCount": 1
 }
 ```
