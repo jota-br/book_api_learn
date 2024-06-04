@@ -5,6 +5,14 @@ async function findBookById(bookId) {
     return await Book.findById(bookId);
 }
 
+async function isEmpty(obj) {
+    for (var prop in obj) {
+        if (obj.hasOwnProperty(prop))
+            return false;
+    }
+    return true;
+}
+
 async function getAllBooks() {
     try {
         return await Book.find().sort('-_id').exec();
@@ -52,11 +60,16 @@ async function updateBookById(data) {
         const updatedBook = data.body;
         const book = await findBookById(bookId);
 
+        const empty = await isEmpty(book);
+        
+        if (empty) {
+            return { error: 'Book not found, update aborted' };
+        }
+
         book.title = updatedBook.title;
         book.author = updatedBook.author;
         book.publisher = updatedBook.publisher;
         book.publishDate = updatedBook.publishDate;
-
         await book.save();
         return book;
     } catch (err) {
@@ -71,7 +84,7 @@ async function deleteBookById(bookId) {
         if (book) {
             return await Book.deleteOne({ _id: bookId });
         }
-        return {error: 'Book not found, deletion aborted'}
+        return {error: 'Book not found, deletion aborted'};
     } catch (err) {
         console.error(err);
         return err;
