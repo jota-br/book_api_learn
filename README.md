@@ -1,14 +1,6 @@
 ## Book api created to learn Node.js
 
 ### Setup
-#### src/.env
-Set PORT
-```env
-PORT=3000
-```
-
-<br />
-<br />
 
 #### src/services/
 Set MongoDB connection URL by creating mongo_url.js file <br />
