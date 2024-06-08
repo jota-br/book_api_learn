@@ -2,20 +2,18 @@ const { json } = require('express');
 const Book = require('./books.mongo');
 
 async function findBookById(bookId) {
-    return await Book.findById(bookId);
-}
-
-async function isEmpty(obj) {
-    for (var prop in obj) {
-        if (obj.hasOwnProperty(prop))
-            return false;
+    try {
+        const book = await Book.findById(bookId);
+        return book;
+    } catch (err) {
+        return err
     }
-    return true;
 }
 
 async function getAllBooks() {
     try {
-        return await Book.find().sort('-_id').exec();
+        const books =  await Book.find().sort('-_id').exec();
+        return books;
     } catch (err) {
         console.error(err);
         return err;
@@ -24,7 +22,8 @@ async function getAllBooks() {
 
 async function getBookById(bookId) {
     try {
-        return await findBookById(bookId);
+        const books = await findBookById(bookId);
+        return books;
     } catch (err) {
         console.error(err);
         return err;
@@ -60,12 +59,6 @@ async function updateBookById(data) {
         const updatedBook = data.body;
         const book = await findBookById(bookId);
 
-        const empty = await isEmpty(book);
-        
-        if (empty) {
-            return { error: 'Book not found, update aborted' };
-        }
-
         book.title = updatedBook.title;
         book.author = updatedBook.author;
         book.publisher = updatedBook.publisher;
@@ -81,10 +74,7 @@ async function updateBookById(data) {
 async function deleteBookById(bookId) {
     try {
         const book = await findBookById(bookId);
-        if (book) {
-            return await Book.deleteOne({ _id: bookId });
-        }
-        return {error: 'Book not found, deletion aborted'};
+        return await Book.deleteOne({ _id: bookId });
     } catch (err) {
         console.error(err);
         return err;
